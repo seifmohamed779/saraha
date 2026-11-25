@@ -6,4 +6,5 @@ export const validFeilds={
     password:z.string().regex(/(?=.*[a-z])(?=.*[A-Z])(?=.*[\d])(?=.*[@$#&* ]).{8,16}/gm),
     phone:z.string().regex(/^(01|00201|\+201)(0|1|2|5){1}\d{8}$/gm),
     gender:z.literal(Object.values(GenderEnum)),
+    otp:z.string().regex(/^\d{6}$/)
 }

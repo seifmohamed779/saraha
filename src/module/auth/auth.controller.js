@@ -2,10 +2,14 @@ import { Router } from "express";
 import { logIn, signUp } from "./auth.service.js";
 import { successRes } from "../../common/response/success.res.js";
 import { validi } from "../../middleware/valid.middle.js";
-import { loginSchema, signupchema } from "./auth.valid.js";
+import { confirmSchema, loginSchema, signupchema } from "./auth.valid.js";
 
 export const userRouter=Router()
-userRouter.post("/signup",validi(signupchema),async(req,res)=>{
+userRouter.post("/signup",validi(signupchema()),async(req,res)=>{
+    const result=await signUp(req.body)
+    successRes({res,message:"created",data:result})
+})
+userRouter.post("/confirm",validi(confirmSchema),async(req,res)=>{
     const result=await signUp(req.body)
     successRes({res,message:"created",data:result})
 })

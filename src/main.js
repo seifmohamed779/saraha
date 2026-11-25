@@ -5,6 +5,7 @@ import { userRouter } from "./module/auth/auth.controller.js";
 import userrouter from "./module/user/user.controller.js";
 import { client, connectRedis } from "./DB/redis/redis.js";
 import { getValue, setValue } from "./common/cache.js";
+import { sendEmail } from "./common/utils/email/email.services.js";
 const app=express()
 app.use(express.json())
 await connectRedis();
@@ -16,7 +17,7 @@ console.log(
 }));
 console.log(
     await getValue("test"));
-
+await sendEmail({to:"nnwsosgfexgyadzhdu@vtmpj.net",subject:"this is for test",html:"<h1>Hello</h1>"})
 await DBconnection()
 app.use("/assets",express.static("./assets"))
 app.use("/user",userrouter)

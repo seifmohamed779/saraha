@@ -4,4 +4,6 @@ export const JWT_ADMIN_ACCESS_SIGNUTURE=process.env.JWT_ADMIN_ACCESS_SIGNUTURE
 export const JWT_REFRESH_EXPIRES_IN=Number(process.env.JWT_REFRESH_EXPIRES_IN)
 export const JWT_USER_REFRESH_SIGNUTURE=process.env.JWT_USER_REFRESH_SIGNUTURE
 export const JWT_ADMIN_REFRESH_SIGNUTURE=process.env.JWT_ADMIN_REFRESH_SIGNUTURE
+export const EMAIL_USER=process.env.EMAIL_USER
 export const REDIS_URL=process.env.REDIS_URL
+export const EMAIL_PASS=process.env.EMAIL_PASS

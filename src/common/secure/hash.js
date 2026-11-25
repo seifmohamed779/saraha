@@ -10,6 +10,9 @@ export async function hashValue({ //type
     tool=HashTollEnum.bcrypt   //default
 }) {
     let hashedValue
+    if(typeof(value)!=='string'){
+        value=String(value)
+    }
     switch (tool) {
         case HashTollEnum.bcrypt:
             hashedValue=await bcrypt.hash(value,rounds)

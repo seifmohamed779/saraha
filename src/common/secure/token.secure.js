@@ -106,3 +106,13 @@ export async function checkToken({token,tokenType}={}) {
     }
     return{user,payload}
 }
+export async function RevokeToken(payload) {
+        const tokenExpireDate = payload.iat+JWT_REFRESH_EXPIRES_IN
+        const currentDate = Math.floor(Date.now() / 1000);
+        const consumedTime = currentDate - payload.iat;
+            await setValue({
+            key:`User::${payload.sub}::RevokeToken::${payload.jti}`,
+            value:payload.jti,
+            optains:{expiration:{value:tokenExpireDate- consumedTime}}
+        })
+    }

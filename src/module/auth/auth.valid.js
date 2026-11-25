@@ -27,6 +27,13 @@ export const signupchema=(lang)=>{
     },{error:"pass Not matched"} 
 
 )}
+export const confirmSchema=z.object({
+        body:z.object({
+            email:validFeilds.email,
+            otp:validFeilds.otp
+        }
+        )
+    })
 export const updateSchema=z.object({ 
     body:loginBody.extend({
         userName:validFeilds.userName,
